@@ -1,0 +1,39 @@
+<div class="row feed" style=" background:lightgrey;" > 
+
+<div class="col-md-4" style=" background:powderblue;">
+
+<div ng-hide="currentUser">
+<h4> Login: </h4>
+<br>
+<input type="text" size="30" ng-model="username" placeholder="Username">
+<br><br>
+<input type="text" size="30" ng-model="password" placeholder="Password">
+<br><br>
+<button type="button" ng-click="signin()">Sign In </button>
+<br><br>
+<a href="#/signup"> Not a member? Signup</a>
+</div>
+<div ng-show="currentUser"> 
+Hello, {{currentUser}} !
+<br><br>
+<a href ng-click="logout()"> Logout </a>
+
+</div> <!--ng-show -->
+</div> <!--ng-hides-->
+
+<div class="col-md-8" style=" background:pink; ">
+<br>
+<div class ="new-meow" ng-show="currentUser">
+<input type="text" class="form-control" ng-model="newMeow" placeholder="What do you have to say today?" >
+<button class="btn" type="button" ng-click="submitNewMeow()">Submit</button>
+
+</div>
+<h3 ng-repeat="meow in meows">
+<span class="glyphicon glyphicon-user" aria-hidden="true"> </span> {{ meow.text }}
+
+<a href ng-click="removeMeow(meow)">Delete</a>
+<br>
+<small> commented by {{meow.username}} </small> </h3>
+
+</div>
+</div>
